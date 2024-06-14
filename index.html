@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Clicker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>Bitcoin Clicker</h1>
+        <div id="bitcoinDisplay">Bitcoins: 0</div>
+        <div id="statsDisplay">
+            <span id="miningRateDisplay">0 bps</span> | 
+            <span id="clickRateDisplay">0 bpc</span>
+        </div>
+        <button id="clickButton">💰 Cliquez pour miner !</button>
+        <div class="store">
+            <div class="column">
+                <h2>Bâtiments</h2>
+                <div id="buildings">
+                    <!-- Bâtiments existants -->
+                    <div class="building" data-base-cost="100" data-value="1" data-count="0" data-info="+1 bps" data-description="Un petit mineur qui travaille dans votre garage pour miner des bitcoins. Augmente la production de <b>1 bitcoin par seconde</b>.">
+                        <span class="name">🏠 Petit Mineur</span>
+                        <span class="count">0</span>
+                        <span class="cost">100 💰</span>
+                        <span class="description">Un petit mineur qui travaille dans votre garage pour miner des bitcoins. Augmente la production de <b>1 bitcoin par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="500" data-value="5" data-count="0" data-info="+5 bps" data-description="Une mine plus grande avec des équipements supplémentaires pour augmenter la production. Augmente la production de <b>5 bitcoins par seconde</b>.">
+                        <span class="name">🏢 Grande Mine</span>
+                        <span class="count">0</span>
+                        <span class="cost">500 💰</span>
+                        <span class="description">Une mine plus grande avec des équipements supplémentaires pour augmenter la production. Augmente la production de <b>5 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="1000" data-value="10" data-count="0" data-info="+10 bps" data-description="Une usine de minage avec des machines sophistiquées pour un rendement optimal. Augmente la production de <b>10 bitcoins par seconde</b>.">
+                        <span class="name">🏭 Usine de Minage</span>
+                        <span class="count">0</span>
+                        <span class="cost">1000 💰</span>
+                        <span class="description">Une usine de minage avec des machines sophistiquées pour un rendement optimal. Augmente la production de <b>10 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="5000" data-value="50" data-count="0" data-info="+50 bps" data-description="Un centre de données dédié au minage, avec des serveurs ultra-rapides. Augmente la production de <b>50 bitcoins par seconde</b>.">
+                        <span class="name">🏢 Centre de Données</span>
+                        <span class="count">0</span>
+                        <span class="cost">5000 💰</span>
+                        <span class="description">Un centre de données dédié au minage, avec des serveurs ultra-rapides. Augmente la production de <b>50 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="10000" data-value="100" data-count="0" data-info="+100 bps" data-description="Une méga mine capable de produire des quantités massives de bitcoins. Augmente la production de <b>100 bitcoins par seconde</b>.">
+                        <span class="name">🏬 Mega Mine</span>
+                        <span class="count">0</span>
+                        <span class="cost">10000 💰</span>
+                        <span class="description">Une méga mine capable de produire des quantités massives de bitcoins. Augmente la production de <b>100 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="50000" data-value="500" data-count="0" data-info="+500 bps" data-description="Un complexe de minage avec des technologies avancées pour une production efficace. Augmente la production de <b>500 bitcoins par seconde</b>.">
+                        <span class="name">🏗️ Complexe de Minage</span>
+                        <span class="count">0</span>
+                        <span class="cost">50000 💰</span>
+                        <span class="description">Un complexe de minage avec des technologies avancées pour une production efficace. Augmente la production de <b>500 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="100000" data-value="1000" data-count="0" data-info="+1000 bps" data-description="Une banque de minage pour maximiser les rendements des bitcoins. Augmente la production de <b>1000 bitcoins par seconde</b>.">
+                        <span class="name">🏦 Banque de Minage</span>
+                        <span class="count">0</span>
+                        <span class="cost">100000 💰</span>
+                        <span class="description">Une banque de minage pour maximiser les rendements des bitcoins. Augmente la production de <b>1000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="500000" data-value="5000" data-count="0" data-info="+5000 bps" data-description="Un gratte-ciel de minage avec une infrastructure de pointe. Augmente la production de <b>5000 bitcoins par seconde</b>.">
+                        <span class="name">🏢 Gratte-ciel de Minage</span>
+                        <span class="count">0</span>
+                        <span class="cost">500000 💰</span>
+                        <span class="description">Un gratte-ciel de minage avec une infrastructure de pointe. Augmente la production de <b>5000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="1000000" data-value="10000" data-count="0" data-info="+10000 bps" data-description="Un édifice de minage pour des opérations massives de bitcoins. Augmente la production de <b>10000 bitcoins par seconde</b>.">
+                        <span class="name">🏢 Édifice de Minage</span>
+                        <span class="count">0</span>
+                        <span class="cost">1000000 💰</span>
+                        <span class="description">Un édifice de minage pour des opérations massives de bitcoins. Augmente la production de <b>10000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="5000000" data-value="50000" data-count="0" data-info="+50000 bps" data-description="Un empire de minage pour une production exponentielle de bitcoins. Augmente la production de <b>50000 bitcoins par seconde</b>.">
+                        <span class="name">🏢 Empire de Minage</span>
+                        <span class="count">0</span>
+                        <span class="cost">5000000 💰</span>
+                        <span class="description">Un empire de minage pour une production exponentielle de bitcoins. Augmente la production de <b>50000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <!-- Nouveaux bâtiments -->
+                    <div class="building" data-base-cost="10000000" data-value="20000" data-count="0" data-info="+20000 bps" data-description="Une mine flottante qui exploite les fonds marins pour des ressources en bitcoins. Augmente la production de <b>20000 bitcoins par seconde</b>.">
+                        <span class="name">🚢 Mine Flottante</span>
+                        <span class="count">0</span>
+                        <span class="cost">10000000 💰</span>
+                        <span class="description">Une mine flottante qui exploite les fonds marins pour des ressources en bitcoins. Augmente la production de <b>20000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="50000000" data-value="50000" data-count="0" data-info="+50000 bps" data-description="Une station spatiale spécialisée dans le minage d'astéroïdes pour des gains massifs. Augmente la production de <b>50000 bitcoins par seconde</b>.">
+                        <span class="name">🚀 Station Spatiale</span>
+                        <span class="count">0</span>
+                        <span class="cost">50000000 💰</span>
+                        <span class="description">Une station spatiale spécialisée dans le minage d'astéroïdes pour des gains massifs. Augmente la production de <b>50000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="200000000" data-value="100000" data-count="0" data-info="+100000 bps" data-description="Une usine souterraine hautement sécurisée pour une production intensive de bitcoins. Augmente la production de <b>100000 bitcoins par seconde</b>.">
+                        <span class="name">🏭 Usine Souterraine</span>
+                        <span class="count">0</span>
+                        <span class="cost">200000000 💰</span>
+                        <span class="description">Une usine souterraine hautement sécurisée pour une production intensive de bitcoins. Augmente la production de <b>100000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="1000000000" data-value="500000" data-count="0" data-info="+500000 bps" data-description="Une ville entière dédiée au minage de bitcoins avec des infrastructures avancées. Augmente la production de <b>500000 bitcoins par seconde</b>.">
+                        <span class="name">🏙️ Ville de Minage</span>
+                        <span class="count">0</span>
+                        <span class="cost">1000000000 💰</span>
+                        <span class="description">Une ville entière dédiée au minage de bitcoins avec des infrastructures avancées. Augmente la production de <b>500000 bitcoins par seconde</b>.</span>
+                    </div>
+                    <div class="building" data-base-cost="5000000000" data-value="1000000" data-count="0" data-info="+1000000 bps" data-description="Un complexe interstellaire pour une production sans précédent de bitcoins. Augmente la production de <b>1000000 bitcoins par seconde</b>.">
+                        <span class="name">🪐 Complexe Interstellaire</span>
+                        <span class="count">0</span>
+                        <span class="cost">5000000000 💰</span>
+                        <span class="description">Un complexe interstellaire pour une production sans précédent de bitcoins. Augmente la production de <b>1000000 bitcoins par seconde</b>.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h2>Améliorations</h2>
+                <div id="upgrades">
+                    <div class="upgrade" data-base-cost="10" data-value="1" data-count="0" data-info="+1 bpc" data-description="Une pioche améliorée pour un minage plus efficace. Augmente la production de <b>1 bitcoin par clic</b>.">
+                        <span class="name">⛏️ Meilleure Pioche</span>
+                        <span class="count">0</span>
+                        <span class="cost">10 💰</span>
+                        <span class="description">Une pioche améliorée pour un minage plus efficace. Augmente la production de <b>1 bitcoin par clic</b>.</span>
+                    </div>
+                    <!-- Ajoutez les nouvelles améliorations ici -->
+                    <div class="upgrade" data-base-cost="100" data-value="5" data-count="0" data-info="+5 bpc" data-description="Un clavier mécanique pour un clic plus rapide et efficace. Augmente la production de <b>5 bitcoins par clic</b>.">
+                        <span class="name">⌨️ Clavier Mécanique</span>
+                        <span class="count">0</span>
+                        <span class="cost">100 💰</span>
+                        <span class="description">Un clavier mécanique pour un clic plus rapide et efficace. Augmente la production de <b>5 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="500" data-value="10" data-count="0" data-info="+10 bpc" data-description="Un écran 4K pour une meilleure visibilité des gains. Augmente la production de <b>10 bitcoins par clic</b>.">
+                        <span class="name">🖥️ Écran 4K</span>
+                        <span class="count">0</span>
+                        <span class="cost">500 💰</span>
+                        <span class="description">Un écran 4K pour une meilleure visibilité des gains. Augmente la production de <b>10 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="1000" data-value="20" data-count="0" data-info="+20 bpc" data-description="Un tapis de souris ergonomique pour un confort maximal. Augmente la production de <b>20 bitcoins par clic</b>.">
+                        <span class="name">🖱️ Tapis de Souris</span>
+                        <span class="count">0</span>
+                        <span class="cost">1000 💰</span>
+                        <span class="description">Un tapis de souris ergonomique pour un confort maximal. Augmente la production de <b>20 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="5000" data-value="50" data-count="0" data-info="+50 bpc" data-description="Un ordinateur quantique pour des performances de minage inégalées. Augmente la production de <b>50 bitcoins par clic</b>.">
+                        <span class="name">🖥️ Ordinateur Quantique</span>
+                        <span class="count">0</span>
+                        <span class="cost">5000 💰</span>
+                        <span class="description">Un ordinateur quantique pour des performances de minage inégalées. Augmente la production de <b>50 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="10000" data-value="100" data-count="0" data-info="+100 bpc" data-description="Un serveur dédié pour booster les opérations de clic. Augmente la production de <b>100 bitcoins par clic</b>.">
+                        <span class="name">💻 Serveur Dédié</span>
+                        <span class="count">0</span>
+                        <span class="cost">10000 💰</span>
+                        <span class="description">Un serveur dédié pour booster les opérations de clic. Augmente la production de <b>100 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="50000" data-value="250" data-count="0" data-info="+250 bpc" data-description="Une équipe de chercheurs pour améliorer les algorithmes de clic. Augmente la production de <b>250 bitcoins par clic</b>.">
+                        <span class="name">🔬 Équipe de Recherche</span>
+                        <span class="count">0</span>
+                        <span class="cost">50000 💰</span>
+                        <span class="description">Une équipe de chercheurs pour améliorer les algorithmes de clic. Augmente la production de <b>250 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="100000" data-value="500" data-count="0" data-info="+500 bpc" data-description="Un supercalculateur pour des calculs de clic ultra-rapides. Augmente la production de <b>500 bitcoins par clic</b>.">
+                        <span class="name">🖥️ Supercalculateur</span>
+                        <span class="count">0</span>
+                        <span class="cost">100000 💰</span>
+                        <span class="description">Un supercalculateur pour des calculs de clic ultra-rapides. Augmente la production de <b>500 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="500000" data-value="1000" data-count="0" data-info="+1000 bpc" data-description="Une interface neuronale pour une interaction de clic intuitive. Augmente la production de <b>1000 bitcoins par clic</b>.">
+                        <span class="name">🧠 Interface Neuronale</span>
+                        <span class="count">0</span>
+                        <span class="cost">500000 💰</span>
+                        <span class="description">Une interface neuronale pour une interaction de clic intuitive. Augmente la production de <b>1000 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="1e9" data-value="200000" data-count="0" data-info="+200000 bpc" data-description="Une IA avancée pour maximiser la productivité des clics. Augmente la production de <b>200000 bitcoins par clic</b>.">
+                        <span class="name">🤖 IA Avancée</span>
+                        <span class="count">0</span>
+                        <span class="cost">1B 💰</span>
+                        <span class="description">Une IA avancée pour maximiser la productivité des clics. Augmente la production de <b>200000 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="5e9" data-value="500000" data-count="0" data-info="+500000 bpc" data-description="Des nano-robots pour améliorer l'efficacité du minage. Augmente la production de <b>500000 bitcoins par clic</b>.">
+                        <span class="name">🤖 Nano-robots</span>
+                        <span class="count">0</span>
+                        <span class="cost">5B 💰</span>
+                        <span class="description">Des nano-robots pour améliorer l'efficacité du minage. Augmente la production de <b>500000 bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="1e10" data-value="1e6" data-count="0" data-info="+1M bpc" data-description="Une usine de minage automatisée pour une production accrue. Augmente la production de <b>1 million de bitcoins par clic</b>.">
+                        <span class="name">🏭 Usine Automatisée</span>
+                        <span class="count">0</span>
+                        <span class="cost">10B 💰</span>
+                        <span class="description">Une usine de minage automatisée pour une production accrue. Augmente la production de <b>1 million de bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="5e10" data-value="5e6" data-count="0" data-info="+5M bpc" data-description="Une ferme de serveurs dédiés au minage pour une production massive. Augmente la production de <b>5 millions de bitcoins par clic</b>.">
+                        <span class="name">💻 Ferme de Serveurs</span>
+                        <span class="count">0</span>
+                        <span class="cost">50B 💰</span>
+                        <span class="description">Une ferme de serveurs dédiés au minage pour une production massive. Augmente la production de <b>5 millions de bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="1e11" data-value="1e7" data-count="0" data-info="+10M bpc" data-description="Un centre de minage à l'échelle industrielle pour une efficacité maximale. Augmente la production de <b>10 millions de bitcoins par clic</b>.">
+                        <span class="name">🏢 Centre de Minage Industriel</span>
+                        <span class="count">0</span>
+                        <span class="cost">100B 💰</span>
+                        <span class="description">Un centre de minage à l'échelle industrielle pour une efficacité maximale. Augmente la production de <b>10 millions de bitcoins par clic</b>.</span>
+                    </div>
+                    <div class="upgrade" data-base-cost="5e11" data-value="5e7" data-count="0" data-info="+50M bpc" data-description="Un réseau de minage mondial pour des gains exponentiels. Augmente la production de <b>50 millions de bitcoins par clic</b>.">
+                        <span class="name">🌍 Réseau de Minage Mondial</span>
+                        <span class="count">0</span>
+                        <span class="cost">500B 💰</span>
+                        <span class="description">Un réseau de minage mondial pour des gains exponentiels. Augmente la production de <b>50 millions de bitcoins par clic</b>.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
