@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const buildingButtons = document.querySelectorAll('.building');
     const upgradeButtons = document.querySelectorAll('.upgrade');
 
+    // Variable pour suivre l'état de la touche espace
+    let spacePressed = false;
+
     // Fonction pour formater les grands nombres
     const formatNumber = (num) => {
         if (num >= 1e15) return (num / 1e15).toFixed(2) + ' Q';
@@ -81,9 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ajout de l'écouteur d'événements pour la barre d'espace
     document.addEventListener('keydown', (event) => {
-        if (event.code === 'Space') {
+        if (event.code === 'Space' && !spacePressed) {
             mineBitcoin();
+            spacePressed = true; // Empêche le déclenchement multiple lors du maintien de la touche
             event.preventDefault();  // Empêche le défilement de la page lorsqu'on appuie sur la barre d'espace
+        }
+    });
+
+    // Réinitialiser l'état de la touche espace lors du relâchement
+    document.addEventListener('keyup', (event) => {
+        if (event.code === 'Space') {
+            spacePressed = false;
         }
     });
 
