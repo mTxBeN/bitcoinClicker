@@ -188,30 +188,59 @@
 
         <div id="stats" class="tab-content">
             <h2>Statistiques</h2>
-            <p>Temps de jeu: <span id="playTime">0 minutes</span></p>
-            <p>Achats dans le magasin: <span id="totalPurchases">0</span></p>
-            <p>Argent dépensé: <span id="totalSpent">0</span></p>
-            <p>Argent total gagné: <span id="totalEarned">0</span></p>
+    <p><strong>Temps de jeu :</strong> <span id="playTime"></span></p>
+    <p><strong>Total des achats :</strong> <span id="totalPurchases"></span></p>
+    <p><strong>Total dépensé :</strong> <span id="totalSpent"></span></p>
+    <p><strong>Total gagné :</strong> <span id="totalEarned"></span></p>
+    <p><strong>Nombre de clics manuels :</strong> <span id="manualClicks"></span></p>
+    <p><strong>Bitcoins générés manuellement :</strong> <span id="manualBitcoinEarned"></span></p>
+    <p><strong>Bitcoins générés par les bâtiments :</strong> <span id="buildingBitcoinEarned"></span></p>
+    <p><strong>Date de création de la partie :</strong> <span id="gameCreationDate"></span></p>
         </div>        
 
         <div id="settings" class="tab-content">
             <h2>Réglages</h2>
-            <label>
-                <input type="checkbox" id="formatNumbers" checked>
-                Activer le formatage des grands nombres
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="theme" id="lightMode" checked>
-                Mode Clair
-            </label>
-            <label>
-                <input type="radio" name="theme" id="darkMode">
-                Mode Sombre
-            </label>
-            <br>
-            <button id="testModeButton" class="small-button">Activer le Mode Test</button>
-        </div>        
+            <div id="settingsContent">
+                <label>
+                    <input type="checkbox" id="formatNumbers" checked>
+                    Activer le formatage des grands nombres
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="theme" id="lightMode" checked>
+                    Mode Clair
+                </label>
+                <label>
+                    <input type="radio" name="theme" id="darkMode">
+                    Mode Sombre
+                </label>
+                <br>
+                <div class="button-group">
+                    <button id="saveGameButton" class="medium-button">Sauvegarder la Partie</button>
+                    <button id="loadGameButton" class="medium-button">Charger une Partie</button>
+                </div>
+            </div>
+            <div id="settingsFooter">
+                <button id="testModeButton" class="small-button">Activer le Mode Test</button>
+            </div>
+        </div>
+        <div id="initialPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">
+            <h2>Bienvenue dans Bitcoin Clicker !</h2>
+            <p>Que souhaitez-vous faire ?</p>
+            <button id="newGameButton">Nouvelle Partie</button>
+            <button id="loadGameFromPopupButton">Charger une Partie</button>
+            <button id="loadGameFromFileButton">Charger un Fichier</button>
+            <input type="file" id="loadGameFromFileInput" accept=".txt" style="display: none;">
+        </div>
+
+
+        <div id="exitPopup" class="popup-overlay">
+            <div class="popup-content">
+                <h2>Voulez-vous vraiment quitter sans sauvegarder ?</h2>
+                <button id="saveBeforeExitButton" class="popup-button">Sauvegarder et Quitter</button>
+                <button id="continueExitButton" class="popup-button danger-button">Quitter sans Sauvegarder</button>
+            </div>
+        </div>                               
     </div>
     <script src="script.js"></script>
 </body>
